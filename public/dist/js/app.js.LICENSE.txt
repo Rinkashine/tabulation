@@ -1,12 +1,12 @@
 /*!
  * 
  * litepicker.umd.js
- * Litepicker v2.0.12 (https://github.com/wakirin/Litepicker)
+ * Litepicker v2.0.11 (https://github.com/wakirin/Litepicker)
  * Package: litepicker (https://www.npmjs.com/package/litepicker)
  * License: MIT (https://github.com/wakirin/Litepicker/blob/master/LICENCE.md)
  * Copyright 2019-2021 Rinat G.
  *     
- * Hash: 504eef9c08cb42543660
+ * Hash: 8991663e2f73caec8a52
  * 
  */
 
@@ -26,7 +26,7 @@
  */
 
 /*!
-FullCalendar v5.10.1
+FullCalendar v5.10.0
 Docs & License: https://fullcalendar.io/
 (c) 2021 Adam Shaw
 */
@@ -47,7 +47,7 @@ PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
 /**!
-* tippy.js v6.3.7
+* tippy.js v6.3.2
 * (c) 2017-2021 atomiks
 * MIT License
 */

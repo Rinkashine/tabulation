@@ -11,7 +11,7 @@
         <meta name="description" content="Go Dental E-Commerce Seller">
         <meta name="keywords" content="Go Dental">
         <meta name="author" content="Mark Joseph Manalo">
-        <title>Go Dental - @yield('title')</title>
+        <title>Sportfest - @yield('title')</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
          <!-- Google tag (gtag.js) -->
          @laravelPWA

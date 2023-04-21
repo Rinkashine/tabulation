@@ -8,16 +8,16 @@
             <p class="-intro-x flex items-center pt-5">
                 <img alt="Go Dental Logo" class="w-12" data-action="zoom" src="{{asset('dist/images/MainLogo.png')}}">
                 <span class="text-white text-lg ml-3">
-                    Go Dental
+                    Sportfest
                 </span>
             </p>
             <div class="my-auto">
-                <img alt="Go Dental" class="-intro-x w-1/2 -mt-16" src="{{ asset('dist/images/login_shop.svg') }}">
+                <img alt="Go Dental" class="-intro-x w-1/2 -mt-16" src="{{ asset('dist/images/Gigaminds.png') }}">
                 <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
-                    A few more clicks to <br> sign in to your account.
+                    Sportfest 2023
                 </div>
                 <div class="intro-x mt-5 text-lg text-white text-opacity-70 dark:text-slate-400">
-                     Go Dental Seller Center
+                    Add Here Sportfest 2023 Theme
                 </div>
             </div>
         </div>
@@ -26,9 +26,9 @@
                <!-- Login Form -->
                 <form action="{{Route('login.store')}}" method="POST">
                     @csrf
-                    <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">Sign In</h2>
+                    <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">Sportfest 2023</h2>
                     <div class="intro-x mt-2 text-slate-400 xl:hidden text-center">
-                        A few more clicks to sign in to your account. Manage all your e-commerce accounts in one place
+                        Add Here Sportfest 2023 Theme
                     </div>
                     <!-- Show Info Session -->
                     @if(session('info'))
