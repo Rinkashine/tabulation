@@ -1,13 +1,18 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Event;
+namespace App\Http\Livewire\Admin\Classification;
 
 use Livewire\Component;
 use Illuminate\Validation\Rule;
-use App\Models\Event;
-class EventForm extends Component
+use App\Models\ClassificationPoint;
+
+class ClassficationPointsForm extends Component
 {
-    public $name, $modelId;
+    public $classification_id, $position, $score;
+
+    public function mount($classification_id){
+        $this->classification_id = $classification_id;
+    }
 
     protected $listeners = [
         'refreshChild' => '$refresh',
@@ -15,20 +20,22 @@ class EventForm extends Component
     ];
 
     protected $validationAttributes = [
-        'name' => 'event name',
+        'position' => 'position name',
     ];
 
     protected function rules()
     {
         return [
-            'name' => ['required', Rule::unique('event')->ignore($this->modelId)],
+            'position' => ['required'],
+            'score' => 'required|integer|min:0'
         ];
     }
 
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'name' => 'required|unique:event,name,'.$this->modelId.'',
+            'position' => 'required',
+            'score' => 'required|integer|min:0'
         ]);
     }
 
@@ -47,21 +54,21 @@ class EventForm extends Component
 
     private function cleanVars()
     {
-        $this->modelId = null;
-        $this->name = null;
-        $this->oldname = null;
+        $this->position = null;
+        $this->score = null;
     }
 
-    public function StoreEventData()
+    public function StorePositionData()
     {
-
         $this->validate();
         $data = [
-            'name' => $this->name,
+            'classification_id' => $this->classification_id,
+            'position' => $this->position,
+            'score' => $this->score
         ];
-        Event::create($data);
+        ClassificationPoint::create($data);
         $this->dispatchBrowserEvent('SuccessAlert', [
-            'name' => $this->name.' was successfully saved!',
+            'name' => $this->position.' was successfully saved!',
             'title' => 'Record Saved',
         ]);
 
@@ -70,9 +77,8 @@ class EventForm extends Component
         $this->emit('refreshParent');
         $this->resetErrorBag();
     }
-
     public function render()
     {
-        return view('livewire.admin.event.event-form');
+        return view('livewire.admin.classification.classfication-points-form');
     }
 }

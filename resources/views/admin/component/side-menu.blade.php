@@ -32,12 +32,19 @@
         <!-- End: Events -->
         <!-- Begin: Pointing -->
         <li>
-            <a href="{{ route('classification.index') }}" class="side-menu {{ (request()->is('admin/events')) ? 'side-menu--active' : '' }}">
-                <div class="side-menu__icon"><i class="fa-solid fa-p  p-1 fa-lg"></i> </div>
+            <a href="{{ route('classification.index') }}" class="side-menu {{ (request()->is('admin/classification')) ? 'side-menu--active' : '' }}">
+                <div class="side-menu__icon"><i class="fa-solid fa-table p-1 fa-lg"></i></div>
                 <div class="side-menu__title"> Points </div>
             </a>
         </li>
         <!-- End: Pointing -->
-
+         <!-- Begin: Tabulation -->
+        <li>
+            <a href="{{ route('tabulation.index') }}" class="side-menu {{ (request()->is('admin/tabulation')) ? 'side-menu--active' : '' }}">
+                <div class="side-menu__icon"><i class="fa-solid fa-list p-1 fa-lg"></i></div>
+                <div class="side-menu__title"> Tabulation </div>
+            </a>
+        </li>
+        <!-- End: Tabulation -->
     </ul>
 </nav>

@@ -27,7 +27,7 @@ class TeamForm extends Component
     protected function rules()
     {
         return [
-            'name' => ['required', Rule::unique('teams')->ignore($this->modelId)],
+            'name' => ['required', Rule::unique('team')->ignore($this->modelId)],
             'photo' => 'required|image',
         ];
     }
@@ -35,7 +35,7 @@ class TeamForm extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'name' => 'required|unique:teams,name,'.$this->modelId.'',
+            'name' => 'required|unique:team,name,'.$this->modelId.'',
             'photo' => 'required|image',
         ]);
     }

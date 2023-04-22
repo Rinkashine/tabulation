@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Team;
+namespace App\Http\Livewire\Admin\Classification;
 
 use Livewire\Component;
-use App\Models\Team;
-use Illuminate\Validation\Rule;
+use App\Models\ClassificationPoint;
 
-class TeamEditForm extends Component
+class ClassficationPointsEditForm extends Component
 {
-    public $name, $modelId, $oldname;
+    public $score,$position, $modelId;
 
     protected $listeners = [
         'getModelId',
@@ -17,28 +16,31 @@ class TeamEditForm extends Component
     ];
 
     protected $validationAttributes = [
-        'name' => 'team name',
+        'position' => 'position name',
     ];
 
     protected function rules()
     {
         return [
-            'name' => ['required', Rule::unique('team')->ignore($this->modelId)],
+            'position' => ['required'],
+            'score' => 'required|integer|min:0'
         ];
     }
 
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'name' => 'required|unique:team,name,'.$this->modelId.'',
+            'position' => 'required',
+            'score' => 'required|integer|min:0'
         ]);
     }
 
     public function getModelId($modelId)
     {
         $this->modelId = $modelId;
-        $team = Team::findorFail($this->modelId);
-        $this->name = $team->name;
+        $classification = ClassificationPoint::findorFail($this->modelId);
+        $this->position = $classification->position;
+        $this->score = $classification->score;
     }
 
     public function closeEditModal()
@@ -54,25 +56,25 @@ class TeamEditForm extends Component
         $this->name = null;
         $this->oldname = null;
     }
+
     public function forceCloseEditModal()
     {
         $this->cleanVars();
         $this->resetErrorBag();
     }
 
-    public function UpdateTeamData()
+    public function UpdateClassificationData()
     {
         if ($this->modelId) {
 
-            $model = Team::find($this->modelId);
-
+            $model = ClassificationPoint::find($this->modelId);
             $this->validate();
-            $this->oldname = $model->name;
-            $model->name = $this->name;
+            $model->position = $this->position;
+            $model->score = $this->score;
             $model->update();
 
             $this->dispatchBrowserEvent('SuccessAlert', [
-                'name' => $this->oldname.' was sucessfully changed to '.$this->name,
+                'name' => "Action Success",
                 'title' => 'Record Successfully Edit',
             ]);
         }
@@ -84,6 +86,6 @@ class TeamEditForm extends Component
 
     public function render()
     {
-        return view('livewire.admin.team.team-edit-form');
+        return view('livewire.admin.classification.classfication-points-edit-form');
     }
 }

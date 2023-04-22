@@ -13,6 +13,8 @@ use App\Http\Controllers\Backend\Page\ProfileController;
 use App\Http\Controllers\Backend\Page\TeamsController;
 use App\Http\Controllers\Backend\Page\EventsController;
 use App\Http\Controllers\Backend\Page\ClassificationController;
+use App\Http\Controllers\Backend\Page\TabulationController;
+
 //Import Admin Transaction Stuff
 use App\Http\Controllers\Backend\Users\CustomerController;
 use App\Http\Controllers\Backend\Users\RoleController;
@@ -40,6 +42,9 @@ Route::group(['prefix' => 'admin'], function () {
             Route::resource('teams', TeamsController::class)->only(['index']);
             Route::resource('events', EventsController::class)->only(['index']);
             Route::resource('classification', ClassificationController::class)->only(['index','show']);
+
+            Route::get('/tabulation/create/{event}/{classification}', [TabulationController::class, 'create'])->name('tabulation.create');
+            Route::resource('tabulation', TabulationController::class)->only(['index']);
 
             //Begin: Profile Module
             Route::get('/profile/changepassword', [ProfileController::class, 'changepass'])->name('AdminChangePass');

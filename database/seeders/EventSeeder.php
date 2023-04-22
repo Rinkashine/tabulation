@@ -15,7 +15,7 @@ class EventSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('events')->insert([
+        DB::table('event')->insert([
             [
                 'name' => 'Mobile Legends',
                 'created_at' => Carbon::now(),

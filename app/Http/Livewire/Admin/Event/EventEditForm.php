@@ -23,14 +23,14 @@ class EventEditForm extends Component
     protected function rules()
     {
         return [
-            'name' => ['required', Rule::unique('events')->ignore($this->modelId)],
+            'name' => ['required', Rule::unique('event')->ignore($this->modelId)],
         ];
     }
 
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'name' => 'required|unique:events,name,'.$this->modelId.'',
+            'name' => 'required|unique:event,name,'.$this->modelId.'',
         ]);
     }
 

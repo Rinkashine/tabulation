@@ -16,7 +16,9 @@
 <!-- Begin: Delete Event Modal -->
 <livewire:admin.event.event-delete/>
 <!-- End: Delete Event Modal-->
-
+<!-- Begin: Unset Score Event Modal -->
+<livewire:admin.event.event-unset-score/>
+<!-- End: Unset Score Event Modal -->
 <!-- Begin: Success Notification -->
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
@@ -82,6 +84,22 @@
         livewire.emit('forceCloseModal');
     })
     //End: Delete Event Modal
+    //Begin: Unset Score Modal
+    const EventUnsetModal = tailwind.Modal.getOrCreateInstance(document.querySelector("#unset-confirmation-modal"));
+    //Show Delete Modal
+    window.addEventListener('openUnsetModal',event => {
+        EventUnsetModal.show();
+    });
+    //Hide Delete Modal
+    window.addEventListener('CloseUnsetModal',event => {
+        EventUnsetModal.hide();
+    });
+    //Hide Modal and Refresh its value
+    const UnsetModal = document.getElementById('unset-confirmation-modal')
+    UnsetModal.addEventListener('hidden.tw.modal', function(event) {
+        livewire.emit('forceCloseModal');
+    })
+    //End: Unset Score Modal
     //SuccessAlert
     window.addEventListener('SuccessAlert',event => {
             let id = (Math.random() + 1).toString(36).substring(7);

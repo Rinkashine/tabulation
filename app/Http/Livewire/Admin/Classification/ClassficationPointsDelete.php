@@ -3,8 +3,9 @@
 namespace App\Http\Livewire\Admin\Classification;
 
 use Livewire\Component;
-use App\Models\Classification;
-class ClassificationDelete extends Component
+use App\Models\ClassificationPoint;
+
+class ClassficationPointsDelete extends Component
 {
     public $modelId;
 
@@ -38,19 +39,18 @@ class ClassificationDelete extends Component
 
     public function delete()
     {
-        $classification = Classification::find($this->modelId);
-        $classification->delete();
+        $position = ClassificationPoint::find($this->modelId);
+        $position->delete();
         $this->dispatchBrowserEvent('SuccessAlert', [
-            'name' => $classification->name.' was successfully deleted!',
+            'name' => $position->position.' was successfully deleted!',
             'title' => 'Record Deleted',
         ]);
         $this->emit('refreshParent');
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
     }
-
     public function render()
     {
-        return view('livewire.admin.classification.classification-delete');
+        return view('livewire.admin.classification.classfication-points-delete');
     }
 }

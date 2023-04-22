@@ -21,21 +21,41 @@
                 <thead>
                     <tr>
                         <th class="whitespace-nowrap">Event Name</th>
-                        <th class="text-center whitespace-nowrap">ACTIONS</th>
+                        <th class="text-center whitespace-nowrap">Status</th>
+                        <th class="text-center whitespace-nowrap">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($events as $event)
                         <tr class="intro-x">
-                            <td class="w-full !py-4">{{ $event->name }} </td>
+                            <td class="whitespace-nowrap">{{ $event->name }} </td>
+                            <td class="whitespace-nowrap text-center">
+                                @if($event->status == 0)
+                                    Not Configured
+                                @elseif($event->status == 1)
+                                    Configured
+                                @endif
+                            </td>
                             <td class="table-report__action">
                                 <div class="flex justify-center items-center">
+                                    @if($event->status == 1)
+                                    <button wire:click="selectItem({{ $event->id }},'view_score')" class="flex items-center text-primary whitespace-nowrap mr-5">
+                                        <i class="fa-regular fa-eye mr-1"></i>View
+                                    </button>
+                                    @endif
                                     <button wire:click="selectItem({{ $event->id }},'edit')" class="flex items-center text-success whitespace-nowrap mr-5">
                                         <i class="fa-regular fa-pen-to-square mr-1"></i>Edit
                                     </button>
+                                    @if($event->status == 1)
+                                        <button wire:click="selectItem({{ $event->id }},'unset_score')" class="flex items-center text-danger whitespace-nowrap mr-5">
+                                            <i class="fa-solid fa-link-slash mr-1"></i> unset score
+                                        </button>
+                                    @endif
                                     <button wire:click="selectItem({{ $event->id }},'delete')" class="flex items-center text-danger whitespace-nowrap mr-5">
                                         <i class="fa-regular fa-trash-can mr-1"></i> Delete
                                     </button>
+
+
                                 </div>
                             </td>
                         </tr>

@@ -41,7 +41,7 @@
 @endsection
 @push('scripts')
 <script>
-    //Begin: Add Event Modal
+    //Begin: Add Classification Modal
     const addItemModal = tailwind.Modal.getInstance(document.querySelector("#add-item-modal"));
     window.addEventListener('CloseAddItemModal',event => {
         addItemModal.hide();
@@ -51,7 +51,7 @@
     ForceCloseaddItemModal.addEventListener('hidden.tw.modal', function(event) {
         livewire.emit('forceCloseModal');
     });
-    //End: Add Event Modal
+    //End: Add Classification Modal
     //Begin: Edit Classification Modal
     const editItemModal = tailwind.Modal.getInstance(document.querySelector("#edit-item-modal"));
     window.addEventListener('OpenEditModal',event => {

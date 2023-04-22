@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Event;
+namespace App\Http\Livewire\Admin\Classification;
 
 use Livewire\Component;
-use App\Models\Event;
 use Livewire\WithPagination;
+use App\Models\ClassificationPoint;
 
-class EventTable extends Component
+class ClassficationPointsTable extends Component
 {
     use WithPagination;
 
@@ -26,6 +26,8 @@ class EventTable extends Component
         'refreshParent' => '$refresh',
     ];
 
+    public $classification;
+
     public function selectItem($itemId, $action)
     {
         $this->selectedItem = $itemId;
@@ -33,26 +35,24 @@ class EventTable extends Component
         if ($action == 'delete') {
             $this->emit('getModelDeleteModalId', $this->selectedItem);
             $this->dispatchBrowserEvent('openDeleteModal');
-        }elseif($action == 'view_score'){
-            $this->emit('getModelViewId', $this->selectedItem);
-            $this->dispatchBrowserEvent('openViewModal');
-        }elseif($action == 'unset_score'){
-            $this->emit('getModelUnsetId', $this->selectedItem);
-            $this->dispatchBrowserEvent('openUnsetModal');
-        }
-        else {
+        }else {
             $this->emit('getModelId', $this->selectedItem);
             $this->dispatchBrowserEvent('OpenEditModal');
         }
         $this->action = $action;
     }
+
+
+    public function mount($classification){
+        $this->classification = $classification;
+    }
     public function render()
     {
-        $events = Event::search($this->search)
-        ->orderBy('name')
-        ->paginate($this->perPage);
-        return view('livewire.admin.event.event-table',[
-            'events' => $events
+        $points = ClassificationPoint::where('classification_id',$this->classification->id)
+        ->orderby('score','desc')
+        ->paginate($this->perPage);;
+        return view('livewire.admin.classification.classfication-points-table',[
+            'points' => $points,
         ]);
     }
 }

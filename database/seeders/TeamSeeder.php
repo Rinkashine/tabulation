@@ -16,7 +16,7 @@ class TeamSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('teams')->insert([
+        DB::table('team')->insert([
             [
                 'name' => 'Black Jotunheim',
                 'created_at' => Carbon::now(),
@@ -32,7 +32,7 @@ class TeamSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
-            [
+           /* [
                 'name' => 'White Nifheim',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -56,7 +56,7 @@ class TeamSeeder extends Seeder
                 'name' => 'Blue Alfheim',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-            ]
+            ]*/
         ]);
     }
 }

@@ -9,10 +9,10 @@ class Event extends Model
 {
     use HasFactory;
 
-    protected $table = 'events';
+    protected $table = 'event';
 
     protected $fillable = [
-        'name'
+        'name','status'
     ];
 
     public static function search($search){

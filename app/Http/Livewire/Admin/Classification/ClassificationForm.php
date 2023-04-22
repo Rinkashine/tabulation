@@ -45,9 +45,7 @@ class ClassificationForm extends Component
     }
     private function cleanVars()
     {
-        $this->modelId = null;
         $this->name = null;
-        $this->oldname = null;
     }
     public function StoreClassificationData()
     {
