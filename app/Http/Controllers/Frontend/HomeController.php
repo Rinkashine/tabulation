@@ -11,6 +11,6 @@ class HomeController extends Controller
     {
 
 
-        return view('customer.page.main.home');
+        return view('frontend.page.main.home');
     }
 }

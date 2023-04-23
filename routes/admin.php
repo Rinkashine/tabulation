@@ -14,6 +14,8 @@ use App\Http\Controllers\Backend\Page\TeamsController;
 use App\Http\Controllers\Backend\Page\EventsController;
 use App\Http\Controllers\Backend\Page\ClassificationController;
 use App\Http\Controllers\Backend\Page\TabulationController;
+use App\Http\Controllers\Backend\Page\RankingController;
+
 
 //Import Admin Transaction Stuff
 use App\Http\Controllers\Backend\Users\CustomerController;
@@ -42,6 +44,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::resource('teams', TeamsController::class)->only(['index']);
             Route::resource('events', EventsController::class)->only(['index']);
             Route::resource('classification', ClassificationController::class)->only(['index','show']);
+            Route::resource('overall', RankingController::class)->only(['index']);
 
             Route::get('/tabulation/create/{event}/{classification}', [TabulationController::class, 'create'])->name('tabulation.create');
             Route::resource('tabulation', TabulationController::class)->only(['index']);

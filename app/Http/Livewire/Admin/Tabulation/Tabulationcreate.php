@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\Classification;
 use App\Models\Team;
 use App\Models\Score;
+use Illuminate\Support\Facades\Redirect;
 
 class Tabulationcreate extends Component
 {
@@ -30,7 +31,7 @@ class Tabulationcreate extends Component
     public function rules()
     {
         return [
-            'data.*.name' => 'required',
+
             'data.*.position' => 'required',
         ];
     }
@@ -38,7 +39,7 @@ class Tabulationcreate extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'data.*.name' => 'required',
+
             'data.*.position' => 'required',
         ]);
     }
@@ -49,20 +50,25 @@ class Tabulationcreate extends Component
 
     ];
 
-    public function SendTabulationData(){
+    public function Tabulate(){
         $this->validate();
-        $configure = Event::find($this->event_id);
-        $configure->status = 1;
-        $configure->update();
+        $points = $this->data;
+        $event = Event::find($this->event_id);
+        $event->status = 1;
+        $event->update();
 
-        foreach($this->data as $points){
+        foreach($points as $point){
             Score::create([
                 'event_id' => $this->event_id,
-                'team_id' => $points['team_id'],
-                'classification_pointing_id' => $points['position']
+                'team_id' => $point['team_id'],
+                'classification_pointing_id' => $point['position']
             ]);
         }
-        return redirect()->route('tabulation.index');
+
+
+        return Redirect::route('tabulation.index');
+
+
 
     }
 

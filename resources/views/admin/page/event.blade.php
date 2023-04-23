@@ -19,6 +19,9 @@
 <!-- Begin: Unset Score Event Modal -->
 <livewire:admin.event.event-unset-score/>
 <!-- End: Unset Score Event Modal -->
+<!-- Begin: View Score Event Modal -->
+<livewire:admin.event.event-view-score/>
+<!-- End: View Score Event Modal -->
 <!-- Begin: Success Notification -->
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
@@ -100,6 +103,22 @@
         livewire.emit('forceCloseModal');
     })
     //End: Unset Score Modal
+    //Begin: View Score Modal
+    const EventViewScoreModal = tailwind.Modal.getOrCreateInstance(document.querySelector("#view-scores-modal"));
+    //Show View Score Modal
+    window.addEventListener('openViewScoreModal',event => {
+        EventViewScoreModal.show();
+    });
+    //Hide View Score Modal
+    window.addEventListener('closeViewScoreModal',event => {
+        EventViewScoreModal.hide();
+    });
+    //Hide Modal and Refresh its value
+    const ViewModal = document.getElementById('view-scores-modal')
+    UnsetModal.addEventListener('hidden.tw.modal', function(event) {
+        livewire.emit('forceCloseModal');
+    })
+    //End: View Score Modal
     //SuccessAlert
     window.addEventListener('SuccessAlert',event => {
             let id = (Math.random() + 1).toString(36).substring(7);

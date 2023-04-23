@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent="SendTabulationData">
+    <form wire:submit.prevent="Tabulate">
         <div class="grid grid-cols-12 gap-x-6 mt-5 pb-20">
             <div class="intro-y col-span-12">
                 <div class="intro-y box p-5">

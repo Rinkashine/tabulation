@@ -15,7 +15,14 @@ class Score extends Model
         'team_id','event_id','classification_pointing_id'
     ];
 
-
+    public function team()
+    {
+        return $this->belongsTo(Team::class);
+    }
+    public function classification_pointing()
+    {
+        return $this->belongsTo(ClassificationPoint::class);
+    }
 
 
 }

@@ -35,7 +35,7 @@ class EventTable extends Component
             $this->dispatchBrowserEvent('openDeleteModal');
         }elseif($action == 'view_score'){
             $this->emit('getModelViewId', $this->selectedItem);
-            $this->dispatchBrowserEvent('openViewModal');
+            $this->dispatchBrowserEvent('openViewScoreModal');
         }elseif($action == 'unset_score'){
             $this->emit('getModelUnsetId', $this->selectedItem);
             $this->dispatchBrowserEvent('openUnsetModal');

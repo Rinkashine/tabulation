@@ -46,5 +46,13 @@
             </a>
         </li>
         <!-- End: Tabulation -->
+          <!-- Begin: Tabulation -->
+          <li>
+            <a href="{{ route('overall.index') }}" class="side-menu {{ (request()->is('admin/overall')) ? 'side-menu--active' : '' }}">
+                <div class="side-menu__icon"><i class="fa-solid fa-earth-asia p-1 fa-lg"></i></div>
+                <div class="side-menu__title"> Overall </div>
+            </a>
+        </li>
+        <!-- End: Tabulation -->
     </ul>
 </nav>
