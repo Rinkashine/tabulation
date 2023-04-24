@@ -23,7 +23,7 @@
                                     <tr>
                                         <td class="whitespace-nowrap text-center">{{ $team->rank }}</td>
                                         <td class="whitespace-nowrap text-center">{{ $team->team_name }}</td>
-                                        <td class="whitespace-nowrap text-center">{{ number_format($team->overall) }}</td>
+                                        <td class="whitespace-nowrap text-center">{{ number_format($team->overall)   }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

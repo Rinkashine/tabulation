@@ -21,10 +21,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{Route('product')}}" class="top-menu {{ (request()->is('productcatalog')) ? 'top-menu--active' : '' }}">
+                    <a href="{{ Route('EventScore.show') }}" class="top-menu {{ (request()->is('EventScore')) ? 'top-menu--active' : '' }}">
                         <div class="top-menu__title"> Ranking By Event</div>
                     </a>
                 </li>
+
 
 
             </ul>

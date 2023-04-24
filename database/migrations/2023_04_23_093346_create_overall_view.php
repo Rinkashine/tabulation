@@ -13,9 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        DB::statement('DROP VIEW overall');
+
+
         DB::statement("CREATE VIEW overall AS
-          SELECT team_name,sum(score) as overall, RANK() OVER(order by overall desc) as rank FROM `list_of_score` GROUP BY team_name;"
+            SELECT team.name as team_name, team.photo,
+            COALESCE(sum(classification_pointing.score),0) as overall,
+            RANK() OVER(order by overall desc) as rank
+            FROM `team`
+            LEFT JOIN score ON score.team_id = team.id
+            LEFT JOIN classification_pointing ON score.classification_pointing_id = classification_pointing.id
+            GROUP BY team.name,team.photo;"
         );
 
     }

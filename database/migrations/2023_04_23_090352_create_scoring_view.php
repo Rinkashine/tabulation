@@ -15,7 +15,7 @@ return new class extends Migration
     {
 
         DB::statement("CREATE VIEW list_of_score AS
-        SELECT team.name as team_name, event.name as event_name, classification_pointing.position,classification_pointing.score FROM `score`
+       SELECT team.name as team_name,team.photo , event.name as event_name, classification_pointing.position,classification_pointing.score FROM `score`
         LEFT JOIN team on score.team_id = team.id
         LEFT JOIN event on score.event_id = event.id
         LEFT JOIN classification_pointing on score.classification_pointing_id =  classification_pointing.id;"

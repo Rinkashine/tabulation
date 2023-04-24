@@ -18,45 +18,65 @@ class TeamSeeder extends Seeder
         //
         DB::table('team')->insert([
             [
-                'name' => 'Black Jotunheim',
+                'name' => 'Andromeda',
+                'photo' => 'Andromeda.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'name' => 'Yellow Asgard',
+                'name' => 'Cassiopeia',
+                'photo' => 'Cassiopeia.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'name' => 'Brown Helheim',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-           /* [
-                'name' => 'White Nifheim',
+                'name' => 'Dipper',
+                'photo' => 'Dipper.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'name' => 'Red Muspelheim',
+                'name' => 'Hydrus',
+                'photo' => 'Hydrus.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'name' => 'Gray Vanaheim',
+                'name' => 'Lyra',
+                'photo' => 'Lyra.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'name' => 'Green Midgard',
+                'name' => 'Octans',
+                'photo' => 'Octans.png',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'name' => 'Orion',
+                'photo' => 'Orion.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
              [
-                'name' => 'Blue Alfheim',
+                'name' => 'Pegasus',
+                'photo' => 'Pegasus.png',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-            ]*/
+             ],
+            [
+                'name' => 'Perseus',
+                'photo' => 'Perseus.png',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'name' => 'Ursa',
+                'photo' => 'Ursa.png',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]
         ]);
     }
 }

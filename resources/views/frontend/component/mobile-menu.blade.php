@@ -13,25 +13,7 @@
                 <div class="menu__title"> Home  </div>
             </a>
         </li>
-        <li>
-            <a href="{{Route('product')}}" class="menu">
-                <div class="menu__icon"> <i class="fa-brands fa-product-hunt"></i> </div>
-                <div class="menu__title"> Product  </div>
-            </a>
-        </li>
-        @if(!Auth::guard('customer')->check())
-        <li>
-            <a href="{{Route('CLogin.index')}}" class="menu">
-                <div class="menu__icon"> <i class="fa-solid fa-right-to-bracket"></i> </div>
-                <div class="menu__title"> Login  </div>
-            </a>
-        </li>
-        <li>
-            <a href="{{Route('CRegister.index')}}" class="menu">
-                <div class="menu__icon"> <i class="fa-solid fa-user-plus"></i> </div>
-                <div class="menu__title"> Sign Up  </div>
-            </a>
-        </li>
-        @endif
+
+
     </ul>
 </div>
