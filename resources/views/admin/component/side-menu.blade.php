@@ -30,6 +30,14 @@
             </a>
         </li>
         <!-- End: Events -->
+        <!-- Begin: Events -->
+        <li>
+            <a href="{{ route('schedule.index') }}" class="side-menu {{ (request()->is('admin/schedule')) ? 'side-menu--active' : '' }}">
+                <div class="side-menu__icon"> <i class="fa-regular fa-calendar p-1 fa-lg"></i> </div>
+                <div class="side-menu__title"> Schedule </div>
+            </a>
+        </li>
+        <!-- End: Events -->
         <!-- Begin: Pointing -->
         <li>
             <a href="{{ route('classification.index') }}" class="side-menu {{ (request()->is('admin/classification')) ? 'side-menu--active' : '' }}">

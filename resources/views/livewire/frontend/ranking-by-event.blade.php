@@ -1,7 +1,4 @@
 <div>
-    <div class="container">
-
-
     <select wire:model="name"  class="form-select w-full @error('event') border-danger @enderror"  >
         <option value="">Select A Event</option>
         @foreach ($events as $event)
@@ -35,5 +32,4 @@
         </table>
     </div>
     @endif
-</div>
 </div>

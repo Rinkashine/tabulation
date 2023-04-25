@@ -11,7 +11,7 @@
                 <div class="mt-5">
                     <div class="overflow-x-auto">
                         <table class="table table-bordered table-hover">
-                            <thead>
+                            <thead class="table-dark">
                                 <tr>
                                     <th class="whitespace-nowrap text-center">Rank</th>
                                     <th class="whitespace-nowrap text-center">Team Name</th>

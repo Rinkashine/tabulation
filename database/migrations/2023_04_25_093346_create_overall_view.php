@@ -15,7 +15,7 @@ return new class extends Migration
     {
 
 
-        DB::statement("CREATE VIEW overall AS
+        DB::statement("CREATE OR REPLACE VIEW overall AS
             SELECT team.name as team_name, team.photo,
             COALESCE(sum(classification_pointing.score),0) as overall,
             RANK() OVER(order by overall desc) as rank
@@ -35,6 +35,6 @@ return new class extends Migration
     public function down()
     {
 
-        DB::statement('DROP VIEW overall');
+        DB::statement("DROP VIEW overall");
     }
 };

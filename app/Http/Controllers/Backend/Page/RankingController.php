@@ -10,7 +10,7 @@ class RankingController extends Controller
 {
     public function index()
     {
-        $teams = ViewOverallData::get();
+        $teams = ViewOverallData::orderby('rank')->get();
         return view('admin.page.overall',[
             'teams' => $teams
         ]);

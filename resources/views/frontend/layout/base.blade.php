@@ -34,8 +34,6 @@
     </head>
     <!-- END: Head -->
     <body class="py-5 md:py-0 bg-black/[0.15] dark:bg-transparent">
-
-
         <!-- BEGIN: Mobile Menu -->
         @include('frontend.component.mobile-menu')
         <!-- END: Mobile Menu -->
@@ -50,7 +48,6 @@
         @include('frontend.component.footer')
         <!-- BEGIN: JS Assets-->
         <script src="{{ asset('dist/js/app.js') }}"></script>
-        @include('sweetalert::alert')
         @livewireScripts
         <!-- END: JS Assets-->
         <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>

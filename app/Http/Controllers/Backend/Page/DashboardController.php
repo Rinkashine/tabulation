@@ -2,19 +2,29 @@
 
 namespace App\Http\Controllers\Backend\Page;
 
-use App\Models\User;
-use App\Models\Product;
-use App\Models\Customer;
-use Spatie\Analytics\Period;
-use App\Models\CustomerOrder;
-use App\Models\CustomerOrderItems;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Team;
+use App\Models\Event;
+use App\Models\Schedule;
+use App\Models\ViewOverallData;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.page.dashboard');
+        $teams = ViewOverallData::orderby('rank')->get();
+
+        $number_of_events = Event::get()->count();
+        $number_of_teams = Team::get()->count();
+        $number_of_schedule = Schedule::get()->count();
+        $number_of_scored_events = Event::where('status',1)->get()->count();
+        return view('admin.page.dashboard',[
+            'number_of_events' => $number_of_events,
+            'number_of_teams' => $number_of_teams,
+            'number_of_schedule' => $number_of_schedule,
+            'number_of_scored_events' => $number_of_scored_events,
+            'teams' => $teams
+
+        ]);
     }
 }

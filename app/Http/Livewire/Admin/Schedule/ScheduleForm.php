@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Team;
+namespace App\Http\Livewire\Admin\Schedule;
 
 use Livewire\Component;
-use App\Models\Team;
+use App\Models\Schedule;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Livewire\WithFileUploads;
-
-class TeamForm extends Component
+class ScheduleForm extends Component
 {
     use WithFileUploads;
 
@@ -20,14 +19,14 @@ class TeamForm extends Component
     ];
 
     protected $validationAttributes = [
-        'name' => 'team name',
-        'photo' => 'team image',
+        'name' => 'schedule name',
+        'photo' => 'schedule image',
     ];
 
     protected function rules()
     {
         return [
-            'name' => ['required', Rule::unique('team')->ignore($this->modelId)],
+            'name' => ['required', Rule::unique('schedule')->ignore($this->modelId)],
             'photo' => 'required|image',
         ];
     }
@@ -35,11 +34,10 @@ class TeamForm extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'name' => 'required|unique:team,name,'.$this->modelId.'',
+            'name' => 'required|unique:schedule,name,'.$this->modelId.'',
             'photo' => 'required|image',
         ]);
     }
-
     public function forceCloseModal()
     {
         $this->cleanVars();
@@ -52,29 +50,28 @@ class TeamForm extends Component
         $this->resetErrorBag();
         $this->dispatchBrowserEvent('CloseAddItemModal');
     }
-
     private function cleanVars()
     {
         $this->modelId = null;
         $this->name = null;
     }
 
-    public function StoreTeamData()
+    public function StoreScheduleData()
     {
-        if (! Storage::disk('public')->exists('team')) {
-            Storage::disk('public')->makeDirectory('team', 0775, true);
+        if (! Storage::disk('public')->exists('schedule')) {
+            Storage::disk('public')->makeDirectory('schedule', 0775, true);
         }
         $this->validate();
 
         if (! empty($this->photo)) {
-            $this->photo->store('public/team');
+            $this->photo->store('public/schedule');
         }
 
         $data = [
             'name' => $this->name,
             'photo' => $this->photo->hashName(),
         ];
-        Team::create($data);
+        Schedule::create($data);
         $this->dispatchBrowserEvent('SuccessAlert', [
             'name' => $this->name.' was successfully saved!',
             'title' => 'Record Saved',
@@ -85,8 +82,9 @@ class TeamForm extends Component
         $this->emit('refreshParent');
         $this->resetErrorBag();
     }
+
     public function render()
     {
-        return view('livewire.admin.team.team-form');
+        return view('livewire.admin.schedule.schedule-form');
     }
 }

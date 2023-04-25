@@ -25,7 +25,11 @@
                         <div class="top-menu__title"> Ranking By Event</div>
                     </a>
                 </li>
-
+                <li>
+                    <a href="{{ Route('Schedules.show') }}" class="top-menu {{ (request()->is('Schedules')) ? 'top-menu--active' : '' }}">
+                        <div class="top-menu__title"> Schedule</div>
+                    </a>
+                </li>
 
 
             </ul>

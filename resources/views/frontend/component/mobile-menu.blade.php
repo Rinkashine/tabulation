@@ -9,11 +9,22 @@
         <!-- -->
         <li>
             <a href="{{ Route('home') }}" class="menu">
-                <div class="menu__icon"> <i class="fa-solid fa-house"></i> </div>
-                <div class="menu__title"> Home  </div>
+                <div class="menu__icon">  </div>
+                <div class="menu__title"> Overall  </div>
             </a>
         </li>
-
+        <li>
+            <a href="{{ Route('EventScore.show') }}" class="menu">
+                <div class="menu__icon">  </div>
+                <div class="menu__title"> Ranking By Event  </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ Route('Schedules.show') }}" class="menu">
+                <div class="menu__icon">  </div>
+                <div class="menu__title"> Schedule  </div>
+            </a>
+        </li>
 
     </ul>
 </div>
