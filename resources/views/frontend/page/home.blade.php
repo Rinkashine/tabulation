@@ -16,7 +16,7 @@
                             </div>
                             <div class="text-slate-600 dark:text-slate-500 mt-5">
                                 <div class="flex items-center mt-2"> <i data-lucide="layers" class="w-4 h-4 mr-2"></i> Current Points: {{ $team->overall }} </div>
-                                <div class="flex items-center mt-2"> <i data-lucide="check-square" class="w-4 h-4 mr-2"></i> Rank: {{ $team->rank }} </div>
+                                <div class="flex items-center mt-2"> <i data-lucide="check-square" class="w-4 h-4 mr-2"></i> Rank: {{ $team->ranking }} </div>
                             </div>
                         </div>
                     </div>

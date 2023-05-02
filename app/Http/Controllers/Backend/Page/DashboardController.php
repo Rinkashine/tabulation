@@ -12,7 +12,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $teams = ViewOverallData::orderby('rank')->get();
+        $teams = ViewOverallData::orderby('ranking')->get();
 
         $number_of_events = Event::get()->count();
         $number_of_teams = Team::get()->count();

@@ -17,7 +17,7 @@
                     Sportfest 2023
                 </div>
                 <div class="intro-x mt-5 text-lg text-white text-opacity-70 dark:text-slate-400">
-                    One Goal, One Pattern, to Achieve Greatness
+                    One Team, One Goal, One Pattern, to Achieve Greatness
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                     @csrf
                     <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">Sportfest 2023</h2>
                     <div class="intro-x mt-2 text-slate-400 xl:hidden text-center">
-                        One Goal, One Pattern, to Achieve Greatness
+                        One Team, One Goal, One Pattern, to Achieve Greatness
                     </div>
                     <!-- Show Info Session -->
                     @if(session('info'))

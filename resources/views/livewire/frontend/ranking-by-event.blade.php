@@ -19,7 +19,12 @@
             <tbody>
                 @forelse ($event_data as $data)
                     <tr>
-                        <td class="whitespace-nowrap">{{ $data->team_name }}</td>
+                        <td class="whitespace-nowrap">
+                            <a href="{{ route('TeamScore.show',['team' => $data->team_name]) }}">
+                                {{ $data->team_name }}
+                            </a>
+
+                        </td>
                         <td class="whitespace-nowrap text-center">{{ $data->position }}</td>
                         <td class="whitespace-nowrap text-center">{{ $data->score }}</td>
                     </tr>

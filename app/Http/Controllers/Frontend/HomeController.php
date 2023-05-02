@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $teams = ViewOverallData::orderby('rank')->get();
+        $teams = ViewOverallData::orderby('ranking')->get();
         return view('frontend.page.home',[
             'teams' => $teams
         ]);

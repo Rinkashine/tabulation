@@ -27,7 +27,7 @@
         </li>
         <li>
             <a href="{{ Route('schedule.index') }}" class="menu">
-                <div class="menu__icon"> <i class="fa-regular fa-calendar"></i>  </div>
+                <div class="menu__icon"> <i class="fa-regular fa-calendar   "></i>  </div>
                 <div class="menu__title"> Schedule  </div>
             </a>
         </li>

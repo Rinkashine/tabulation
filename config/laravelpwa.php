@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'name' => 'LaravelPWA',
+    'name' => 'Sportfest',
     'manifest' => [
-        'name' => 'Go Dental',
-        'short_name' => 'Dental',
+        'name' => 'Sportfest',
+        'short_name' => 'Sportfest',
         'start_url' => '/',
         'background_color' => '#1e5f4e',
         'theme_color' => '#054232',

@@ -18,7 +18,7 @@ return new class extends Migration
         DB::statement("CREATE OR REPLACE VIEW overall AS
             SELECT team.name as team_name, team.photo,
             COALESCE(sum(classification_pointing.score),0) as overall,
-            RANK() OVER(order by overall desc) as rank
+            RANK() OVER(order by sum(classification_pointing.score) desc) as ranking
             FROM `team`
             LEFT JOIN score ON score.team_id = team.id
             LEFT JOIN classification_pointing ON score.classification_pointing_id = classification_pointing.id
