@@ -26,7 +26,7 @@
                 <table class="table table-bordered table-hover table-striped">
                     <thead class="table-dark">
                         <tr>
-                            <th class="whitespace-nowrap">Event Name:</th>
+                            <th class="whitespace-nowrap">Event Name</th>
                             <th class="whitespace-nowrap text-center">Position</th>
                             <th class="whitespace-nowrap text-center">Score</th>
                         </tr>
