@@ -12,7 +12,11 @@
                     <div class=" box zoom-in">
                         <div class="p-5">
                             <div class="w-full flex items-center justify-center">
-                                <img  class="rounded-md" src="{{ url('storage/team/'.$team->photo) }}">
+                                @if (Storage::disk('s3')->exists('team/'.$team->photo))
+                                    <img src="{{ Storage::disk('s3')->url('team/'.$team->photo) }}"  class="rounded-md" alt="Missing team Image">
+                                @else
+                                    <img src="{{ asset('dist/images/ImageNotFound.png') }}" data-action="zoom" class="rounded-md" alt="Missing team Image">
+                                @endif
                             </div>
                             <div class="text-slate-600 dark:text-slate-500 mt-5">
                                 <div class="flex items-center mt-2"> <i data-lucide="layers" class="w-4 h-4 mr-2"></i> Current Points: {{ $team->overall }} </div>

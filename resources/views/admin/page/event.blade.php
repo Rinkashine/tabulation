@@ -68,7 +68,7 @@
     //Closing Modal and Refreshing its value
     const ForceCloseEditItemModal = document.getElementById('edit-item-modal')
     ForceCloseEditItemModal.addEventListener('hidden.tw.modal', function(event) {
-        livewire.emit('forceCloseEditModal');
+        livewire.emit('forceCloseModal');
     });
     //End: Edit Event Modal
     //Begin: Delete Event Modal

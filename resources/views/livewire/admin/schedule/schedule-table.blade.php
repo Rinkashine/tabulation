@@ -46,11 +46,12 @@
                     </div>
                     <div class="w-full flex justify-center border-t border-slate-200/60 dark:border-darkmode-400 mt-2"> </div>
                     <div class="flex justify-center text-center lg:text-left p-5 ">
-                        @if (Storage::disk('public')->exists('schedule/'.$schedule->photo))
-                            <img src="{{ url('storage/schedule/'.$schedule->photo) }}" data-action="zoom" class="object-contain w-full h-56" alt="Missing team Image">
+                        @if (Storage::disk('s3')->exists('schedule/'.$schedule->photo))
+                            <img src="{{ Storage::disk('s3')->url('schedule/'.$schedule->photo) }}" data-action="zoom" class="object-contain w-full h-56" alt="Missing team Image">
                         @else
                             <img src="{{  asset('dist/images/ImageNotFound.png') }}" data-action="zoom" class="object-contain w-full h-56" alt="Missing team Image">
                         @endif
+
                     </div>
                 </div>
             </div>

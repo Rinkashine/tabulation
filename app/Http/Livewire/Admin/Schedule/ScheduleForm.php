@@ -58,15 +58,9 @@ class ScheduleForm extends Component
 
     public function StoreScheduleData()
     {
-        if (! Storage::disk('public')->exists('schedule')) {
-            Storage::disk('public')->makeDirectory('schedule', 0775, true);
-        }
+
         $this->validate();
-
-        if (! empty($this->photo)) {
-            $this->photo->store('public/schedule');
-        }
-
+        $this->photo->store('schedule', 's3');
         $data = [
             'name' => $this->name,
             'photo' => $this->photo->hashName(),

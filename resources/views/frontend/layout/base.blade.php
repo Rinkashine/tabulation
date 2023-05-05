@@ -2,16 +2,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ $dark_mode ? 'dark' : '' }}{{ $color_scheme != 'default' ? ' ' . $color_scheme : '' }}">
     <!-- BEGIN: Head -->
     <head>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-256796243-1"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-256796243-1');
-        </script>
-        <!-- Google tag (gtag.js) -->
         <meta charset="utf-8">
         <link href="{{asset('icons/log.png')}}" rel="shortcut icon">
         <link rel="stylesheet" href="{{ asset('dist/css/build.css') }}" />
@@ -29,7 +19,6 @@
 
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <!-- END: CSS Assets-->
-        @laravelPWA
         @livewireStyles
     </head>
     <!-- END: Head -->

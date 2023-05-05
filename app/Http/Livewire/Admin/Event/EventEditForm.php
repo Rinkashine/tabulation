@@ -13,8 +13,14 @@ class EventEditForm extends Component
     protected $listeners = [
         'getModelId',
         'refreshChild' => '$refresh',
-        'forceCloseEditModal',
+        'forceCloseModal'
     ];
+
+    public function forceCloseModal()
+    {
+        $this->cleanVars();
+        $this->resetErrorBag();
+    }
 
     protected $validationAttributes = [
         'name' => 'event name',
@@ -55,11 +61,7 @@ class EventEditForm extends Component
         $this->oldname = null;
     }
 
-    public function forceCloseEditModal()
-    {
-        $this->cleanVars();
-        $this->resetErrorBag();
-    }
+
 
   public function UpdateEventData()
     {
@@ -80,7 +82,6 @@ class EventEditForm extends Component
         $this->cleanVars();
         $this->dispatchBrowserEvent('closeEditModal');
         $this->emit('refreshParent');
-        $this->resetErrorBag();
     }
 
     public function render()

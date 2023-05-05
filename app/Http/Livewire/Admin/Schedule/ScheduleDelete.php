@@ -41,8 +41,9 @@ class ScheduleDelete extends Component
     public function delete()
     {
             $schedule = Schedule::find($this->modelId);
-
-            Storage::delete('public/schedule/'.$schedule->photo);
+            if (!Storage::disk('s3')->exists('schedule/'.$schedule->photo)){
+                Storage::disk('s3')->delete('schedule/'.$schedule->photo);
+            }
             $schedule->delete();
 
             $this->dispatchBrowserEvent('SuccessAlert', [

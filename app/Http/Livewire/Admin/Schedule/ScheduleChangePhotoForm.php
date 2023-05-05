@@ -56,14 +56,15 @@ class ScheduleChangePhotoForm extends Component
 
     public function ChangeSchedulePhoto()
     {
-        if (! Storage::disk('public')->exists('schedule')) {
-            Storage::disk('public')->makeDirectory('schedule', 0775, true);
-        }
+
         $this->validate();
 
         $model = Schedule::find($this->modelId);
-        Storage::delete('public/schedule/'.$model->photo);
-        $this->photo->store('public/schedule');
+        if (!Storage::disk('s3')->exists('schedule/'.$model->photo)){
+            Storage::disk('s3')->delete('schedule/'.$model->photo);
+        }
+
+        $this->photo->store('schedule','s3');
         $model->photo = $this->photo->hashName();
         $model->update();
 

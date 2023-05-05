@@ -740,15 +740,6 @@ select {
 .right-0 {
   right: 0px;
 }
-.-bottom-0\.5 {
-  bottom: -0.125rem;
-}
-.left-0 {
-  left: 0px;
-}
-.-bottom-0 {
-  bottom: -0px;
-}
 .top-0 {
   top: 0px;
 }
@@ -903,9 +894,6 @@ select {
 .block {
   display: block;
 }
-.inline-block {
-  display: inline-block;
-}
 .flex {
   display: flex;
 }
@@ -947,9 +935,6 @@ select {
 }
 .h-64 {
   height: 16rem;
-}
-.h-0\.5 {
-  height: 0.125rem;
 }
 .h-full {
   height: 100%;
@@ -1120,9 +1105,6 @@ select {
 .gap-1 {
   gap: 0.25rem;
 }
-.gap-2 {
-  gap: 0.5rem;
-}
 .gap-5 {
   gap: 1.25rem;
 }
@@ -1148,6 +1130,9 @@ select {
 }
 .overflow-y-auto {
   overflow-y: auto;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 .overflow-y-hidden {
   overflow-y: hidden;
@@ -1260,10 +1245,6 @@ select {
 }
 .bg-inherit {
   background-color: inherit;
-}
-.bg-slate-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-slate-100) / var(--tw-bg-opacity));
 }
 .bg-slate-50 {
   --tw-bg-opacity: 1;
@@ -1445,9 +1426,6 @@ select {
 .leading-8 {
   line-height: 2rem;
 }
-.leading-loose {
-  line-height: 2;
-}
 .leading-5 {
   line-height: 1.25rem;
 }
@@ -1540,11 +1518,6 @@ select {
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
 .transition {
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -1606,9 +1579,6 @@ select {
 .active\:text-gray-500:active {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-.group:hover .group-hover\:w-full {
-  width: 100%;
 }
 .dark .dark\:border-darkmode-400 {
   --tw-border-opacity: 1;

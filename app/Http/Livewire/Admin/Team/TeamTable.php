@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Team;
 use Livewire\Component;
 use App\Models\Team;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Storage;
 
 class TeamTable extends Component
 {

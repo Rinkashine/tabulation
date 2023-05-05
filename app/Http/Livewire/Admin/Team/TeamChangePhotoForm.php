@@ -55,14 +55,16 @@ class TeamChangePhotoForm extends Component
 
     public function ChangeBrandPhoto()
     {
-        if (! Storage::disk('public')->exists('team')) {
-            Storage::disk('public')->makeDirectory('team', 0775, true);
-        }
+
         $this->validate();
 
         $model = Team::find($this->modelId);
-        Storage::delete('public/team/'.$model->photo);
-        $this->photo->store('public/team');
+        if (!Storage::disk('s3')->exists('team/'.$model->photo)){
+            Storage::disk('s3')->delete('team/'.$model->photo);
+        }
+
+
+        $this->photo->store('team','s3');
         $model->photo = $this->photo->hashName();
         $model->update();
 

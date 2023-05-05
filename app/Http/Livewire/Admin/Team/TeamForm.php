@@ -61,15 +61,8 @@ class TeamForm extends Component
 
     public function StoreTeamData()
     {
-        if (! Storage::disk('public')->exists('team')) {
-            Storage::disk('public')->makeDirectory('team', 0775, true);
-        }
         $this->validate();
-
-        if (! empty($this->photo)) {
-            $this->photo->store('public/team');
-        }
-
+        $this->photo->store('team', 's3');
         $data = [
             'name' => $this->name,
             'photo' => $this->photo->hashName(),

@@ -20,7 +20,7 @@
             </div>
             <div class="h-64 text-base ">
                 <h4 class="mb-2 font-semibold text-gray-200 md:text-lg">STI Munoz EDSA</h4>
-                <img class="object-scale-down h-48" src="dist/images/Mainlogo.png">
+                <img class="object-scale-down h-48" src="dist/images/MainLogo.png">
             </div>
         </div>
         <!-- Our Address / Div4 -->

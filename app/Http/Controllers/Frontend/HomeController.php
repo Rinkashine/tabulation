@@ -22,7 +22,7 @@ class HomeController extends Controller
     public function TeamScoreIndex($team){
         $team_data = ViewListOfScoreData::where('team_name',$team)->orderby('event_name','asc')->get();
         $overall_data = ViewOverallData::where('team_name',$team)->get()->first();
-        $rank = $overall_data->rank;
+        $rank = $overall_data->ranking;
         $current_points = $overall_data->overall;
         return view('frontend.page.team-score',[
             'team_data' => $team_data,

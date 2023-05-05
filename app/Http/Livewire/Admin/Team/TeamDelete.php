@@ -42,13 +42,9 @@ class TeamDelete extends Component
     {
         $team = Team::find($this->modelId);
 
-    //    if ($brand->brandTransactions()->count()) {
-     //       $this->dispatchBrowserEvent('InvalidAlert', [
-     //           'name' => $brand->name.' has a product records!',
-      //          'title' => 'Delete Failed!',
-      //      ]);
-      //  } else {
-            Storage::delete('public/team/'.$team->photo);
+        if (!Storage::disk('s3')->exists('team/'.$team->photo)){
+            Storage::disk('s3')->delete('team/'.$team->photo);
+        }
             $team->delete();
 
             $this->dispatchBrowserEvent('SuccessAlert', [
